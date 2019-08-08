@@ -1,9 +1,12 @@
+import React from 'react'
 import { createStackNavigator, createAppContainer, createDrawerNavigator } from 'react-navigation'
 import DetailScreen from '../Containers/DetailScreen'
 import ListScreen from '../Containers/ListScreen'
 import Header from '../Containers/Header'
 import LaunchScreen from '../Containers/LaunchScreen'
 
+import HeaderIcon from '../Components/HeaderIcon'
+import { Images } from '../Themes'
 import styles from './Styles/NavigationStyles'
 
 // Manifest of possible screens
@@ -22,7 +25,12 @@ const PrimaryNav = createStackNavigator({
 })
 
 const DrawerNavigator = createDrawerNavigator({
-  list: ListScreen,
+  list: {
+    screen: ListScreen,
+    navigationOptions: ()  => ({
+      headerBackTitleVisible: false
+    })
+  },
   detail: DetailScreen
 },{
   hideStatusBar: true,
@@ -30,6 +38,9 @@ const DrawerNavigator = createDrawerNavigator({
     headerStyle: {
       backgroundColor: '#43E895'
     },
+    title:  'Lunch Tyme',
+    headerBackImage: () => <HeaderIcon imgSource={Images.backButton} />,
+    headerRight: () => <HeaderIcon imgSource={Images.mapIcon} />,
     headerTitleStyle: {
       color: '#FFFFFF',
       fontSize: 17,

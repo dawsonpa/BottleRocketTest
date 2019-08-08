@@ -70,17 +70,15 @@ const ApplicationStyles = {
     alignItems: 'center'
   },
   sectionTitle: {
-    ...Fonts.style.h4,
-    color: Colors.coal,
-    backgroundColor: Colors.ricePaper,
-    padding: Metrics.smallMargin,
-    marginTop: Metrics.smallMargin,
-    marginHorizontal: Metrics.baseMargin,
-    borderWidth: 1,
-    borderColor: Colors.ember,
-    alignItems: 'center',
-    textAlign: 'center'
-  }
+    fontFamily: Fonts.type.bold,
+    fontSize: Fonts.size.regular,
+    color:Colors.white
+  },
+  sectionSubTitle:{
+    fontFamily: Fonts.type.base,
+    fontSize: Fonts.size.small,
+    color: Colors.white
+  },
 }
 
 export default ApplicationStyles
