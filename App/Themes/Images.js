@@ -18,8 +18,10 @@ const images = {
   usageExamples: require('../Images/Icons/icon-usage-examples.png'),
   chevronRight: require('../Images/Icons/chevron-right.png'),
   hamburger: require('../Images/Icons/hamburger.png'),
-  backButton: require('../Images/Icons/back-button.png'),
-  closeButton: require('../Images/Icons/close-button.png')
+  backButton: require('../Images/Icons/ic_webBack@2x.png'),
+  closeButton: require('../Images/Icons/close-button.png'),
+  mapIcon:require('../Images/Icons/icon_map@2x.png')
+
 }
 
 export default images
