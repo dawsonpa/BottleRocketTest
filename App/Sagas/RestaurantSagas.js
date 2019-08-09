@@ -26,7 +26,9 @@ export function * getRestaurants (api, action) {
   if (response.ok) {
     // You might need to change the response here - do this with a 'transform',
     // located in ../Transforms/. Otherwise, just pass the data back from the api.
-    yield put(RestaurantActions.restaurantSuccess(AddClientId(response.data)))
+    const  transformedData = AddClientId(response.data.restaurants)
+    console.log(transformedData, 'transformed')
+    yield put(RestaurantActions.restaurantSuccess(transformedData))
   } else {
     yield put(RestaurantActions.restaurantFailure())
   }

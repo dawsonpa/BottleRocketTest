@@ -27,7 +27,7 @@ export default function * root () {
   yield all([
     // some sagas only receive an action
     takeLatest(StartupTypes.STARTUP, startup),
-    takeLatest(RestaurantTypes.SET_SELECTED_RESTAURANT_ID),
+    takeLatest(RestaurantTypes.SET_SELECTED_RESTAURANT_ID, setSelectedRestaurantId),
 
     // some sagas receive extra parameters in addition to an action
     takeLatest(RestaurantTypes.RESTAURANT_REQUEST, getRestaurants, api)

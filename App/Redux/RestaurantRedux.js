@@ -25,8 +25,8 @@ export const INITIAL_STATE = Immutable({
 
 /* ------------- Selectors ------------- */
 
-const getSelectedRestaurantId = state  => state.selectedRestaurantId;
-const getRestaurants = state => state.restaurants;
+const getSelectedRestaurantId = state  => state.restaurants.selectedRestaurantId;
+const getRestaurants = state => state.restaurants.restaurants;
 
 export const RestaurantSelectors = {
   getRestaurants,

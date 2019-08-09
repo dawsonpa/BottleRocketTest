@@ -6,9 +6,10 @@ export default StyleSheet.create({
     flex: 1,
     height: 180,
     width: '100%',
-    paddingRight:12,
-    paddingBottom: 6,
     flexDirection: 'column',
     justifyContent:'flex-end'
+  },
+  gradient:  {
+    height: 100
   }
 })
