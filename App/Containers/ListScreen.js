@@ -20,7 +20,7 @@ class ListScreen extends Component {
 
   _onPress = (id :string)  => {
     this.props.setSelectedRestaurantId(id)
-    this.props.nav.openDrawer()
+    this.props.nav.navigation.openDrawer()
   }
 
   _renderItem =  ({item}) => (

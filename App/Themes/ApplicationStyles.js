@@ -69,17 +69,7 @@ const ApplicationStyles = {
     flexDirection: 'row',
     justifyContent: 'space-around',
     alignItems: 'center'
-  },
-  sectionTitle: {
-    fontFamily: Fonts.type.bold,
-    fontSize: Fonts.size.regular,
-    color:Colors.white
-  },
-  sectionSubTitle:{
-    fontFamily: Fonts.type.base,
-    fontSize: Fonts.size.small,
-    color: Colors.white
-  },
+  }
 }
 
 export default ApplicationStyles

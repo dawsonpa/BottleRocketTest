@@ -1,6 +1,6 @@
 const type = {
-  base: 'Avenir-Next Regular',
-  bold: 'Avenir-Next Demi Bold',
+  base: 'AvenirNext-Regular',
+  bold: 'AvenirNext-DemiBold',
   emphasis: 'HelveticaNeue-Italic'
 }
 

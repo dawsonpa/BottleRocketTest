@@ -6,21 +6,24 @@ import Header from '../Containers/Header'
 import LaunchScreen from '../Containers/LaunchScreen'
 
 import HeaderIcon from '../Components/HeaderIcon'
-import { Images } from '../Themes'
+import {Fonts, Images} from '../Themes'
 import styles from './Styles/NavigationStyles'
 
 // Manifest of possible screens
-const PrimaryNav = createStackNavigator({
-  DetailScreen: { screen: DetailScreen },
+const ListStack = createStackNavigator({
   ListScreen: { screen: ListScreen },
-  Header: { screen: Header },
-  LaunchScreen: { screen: LaunchScreen }
 }, {
   // Default config for all screens
-  headerMode: 'none',
-  initialRouteName: 'LaunchScreen',
+  headerMode: 'float',
+  initialRouteName: 'ListScreen',
   navigationOptions: {
-    headerStyle: styles.header
+    headerStyle: styles.header,
+    headerRight: () => <HeaderIcon imgSource={Images.mapIcon} />,
+    headerTitleStyle: {
+      color: '#FFFFFF',
+      fontSize: 17,
+      fontFamily: Fonts.type.bold
+    }
   }
 })
 
@@ -44,7 +47,7 @@ const DrawerNavigator = createDrawerNavigator({
     headerTitleStyle: {
       color: '#FFFFFF',
       fontSize: 17,
-      fontFamily:'Avenir Next Demi Bold'
+      fontFamily: Fonts.type.bold
     }
   }
 })

@@ -24,6 +24,7 @@ const colors = {
   text: '#E0D7E5',
   headerBackground:'#43E895',
   white: '#FFFFFF',
+  gradientBlack: 'rgba(0, 0, 0, 0.9);'
 
 
 }
