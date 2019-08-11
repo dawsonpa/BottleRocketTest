@@ -13,7 +13,7 @@
 import { call, put } from 'redux-saga/effects'
 import RestaurantActions from '../Redux/RestaurantRedux'
 import AddClientId from '../Transforms/AddClientId'
-import AddGeojson from '../Transforms/AddGeojson'
+import AddLatLng from '../Transforms/AddLatLng'
 
 // import { RestaurantSelectors } from '../Redux/RestaurantRedux'
 
@@ -29,8 +29,7 @@ export function * getRestaurants (api, action) {
     // You might need to change the response here - do this with a 'transform',
     // located in ../Transforms/. Otherwise, just pass the data back from the api.
     let  transformedData = AddClientId(response.data.restaurants)
-    transformedData = AddGeojson(transformedData)
-    console.log(transformedData, 'transformed')
+    transformedData = AddLatLng(transformedData)
     yield put(RestaurantActions.restaurantSuccess(transformedData))
   } else {
     yield put(RestaurantActions.restaurantFailure())

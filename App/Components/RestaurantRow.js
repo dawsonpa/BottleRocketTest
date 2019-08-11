@@ -1,11 +1,11 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types';
 import { View, Text,  Image, TouchableOpacity, ImageBackground } from 'react-native'
 import styles from './Styles/RestaurantRowStyle'
 import LinearGradient from 'react-native-linear-gradient'
 import {Colors} from "../Themes";
 
-export default class RestaurantRow extends Component {
+export default class RestaurantRow extends PureComponent {
   // // Prop type warnings
   static propTypes = {
     name: PropTypes.string.isRequired,

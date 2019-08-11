@@ -64,6 +64,18 @@ class ListScreen extends Component {
 
   _keyExtractor = (item, index) => item.clientId
 
+  onMarkerClicked = e => {
+    console.log(e.nativeEvent, 'logging')
+    const {
+      selectedId,
+      setSelectedRestaurantId
+    } = this.props
+
+    if(selectedId !== e.nativeEvent.id) {
+      setSelectedRestaurantId(e.nativeEvent.id)
+    }
+  }
+
   renderRestaurantDetails = () => {
     const {
       selectedRestaurant,
@@ -79,7 +91,7 @@ class ListScreen extends Component {
         } = this.props.selectedRestaurant
         return (
           <Animatable.View  iterationCount={1} ref={this.handleViewRef} animation={'slideInRight'}  style={styles.details}>
-            <RestaurantMap restaurants={restaurants} selectedRestaurant={selectedRestaurant}/>
+            <RestaurantMap restaurants={restaurants} selectedRestaurant={selectedRestaurant} onMarkerClicked={this.onMarkerClicked}/>
             <RestaurantDetails name={name} category={category} address={location && location.formattedAddress} number={contact && contact.formattedPhone} twitter={contact && contact.twitter}/>
           </Animatable.View>
         )
