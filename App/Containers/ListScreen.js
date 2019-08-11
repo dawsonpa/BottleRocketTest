@@ -114,6 +114,7 @@ class ListScreen extends Component {
           keyExtractor={this._keyExtractor}
           horizontal={false}
           numColumns={this.numColumns}
+          columnWrapperStyle={{ flexDirection: 'row', width: '100%'}}
         />
         { drawerOpen && this.renderRestaurantDetails()  }
       </View>
