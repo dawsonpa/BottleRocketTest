@@ -4,7 +4,7 @@ import { View, Text, Image } from 'react-native'
 import MapView, { Marker, Callout } from 'react-native-maps';
 
 import styles from './Styles/RestaurantMapStyle'
-import {Colors, Fonts, Metrics} from "../Themes";
+import {Colors, Fonts } from "../Themes";
 
 export default class RestaurantMap extends PureComponent {
   // // Prop type warnings

@@ -6,9 +6,9 @@ import { Images } from '../Themes'
 
 export default class HeaderIcon extends Component {
   // Prop type warnings
-  static propTypes = {
-    imgSource:PropTypes.string.isRequired,
-  }
+  // static propTypes = {
+  //   imgSource:PropTypes.string.isRequired,
+  // }
   //
   // // Defaults for props
   // static defaultProps = {

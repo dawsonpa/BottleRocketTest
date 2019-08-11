@@ -29,7 +29,7 @@ export default class RestaurantDetails extends PureComponent {
     return (
       <View style={styles.container}>
         <View style={styles.sectionTitleContainer}>
-          <Text style={[styles.sectionTitle, { marginBottom: 6 }]}>{name}</Text>
+          <Text style={styles.sectionTitle}>{name}</Text>
           <Text style={styles.sectionSubTitle}>{category}</Text>
         </View>
         {address && address.length && <View style={styles.addressContainer}>

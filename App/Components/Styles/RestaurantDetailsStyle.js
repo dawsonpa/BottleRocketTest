@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet, PixelRatio } from 'react-native'
 import { Colors ,Fonts } from "../../Themes";
 
 export default StyleSheet.create({
@@ -7,7 +7,7 @@ export default StyleSheet.create({
   },
   sectionTitleContainer:  {
     width: '100%',
-    height: 60,
+    height: 60 * PixelRatio.get(),
     flexDirection: 'column',
     justifyContent: 'center',
     paddingHorizontal: 12,
@@ -15,12 +15,12 @@ export default StyleSheet.create({
   },
   sectionTitle: {
     fontFamily: Fonts.type.bold,
-    fontSize: Fonts.size.regular,
+    fontSize: Fonts.size.regular * PixelRatio.get(),
     color: Colors.white,
   },
   sectionSubTitle:{
     fontFamily: Fonts.type.base,
-    fontSize: Fonts.size.small,
+    fontSize: Fonts.size.small * PixelRatio.get(),
     color: Colors.white,
   },
   detailsContainer: {
