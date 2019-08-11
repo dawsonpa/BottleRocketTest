@@ -3,7 +3,6 @@ import { Colors ,Fonts } from "../../Themes";
 
 export default StyleSheet.create({
   container: {
-    flex: 1,
     flexDirection:  'column'
   },
   sectionTitleContainer:  {
@@ -11,17 +10,31 @@ export default StyleSheet.create({
     height: 60,
     flexDirection: 'column',
     justifyContent: 'center',
-    paddingHorizontal: 12
+    paddingHorizontal: 12,
+    backgroundColor: Colors.sectionTitleBackground
+  },
+  sectionTitle: {
+    fontFamily: Fonts.type.bold,
+    fontSize: Fonts.size.regular,
+    color: Colors.white,
+  },
+  sectionSubTitle:{
+    fontFamily: Fonts.type.base,
+    fontSize: Fonts.size.small,
+    color: Colors.white,
   },
   detailsContainer: {
     width:'100%',
-    paddingTop: 16,
     paddingHorizontal: 12,
-    background: Colors.background,
+    backgroundColor: Colors.background,
     flexDirection: 'column'
   },
   addressContainer: {
+    marginTop: 16,
     flexDirection: 'column',
+    paddingHorizontal: 12,
+    marginBottom: 26
+
   },
   detailsText: {
     fontSize: Fonts.size.h6,

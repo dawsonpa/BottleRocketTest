@@ -1,26 +1,57 @@
 import React, { Component } from 'react'
-import { FlatList, Text, KeyboardAvoidingView } from 'react-native'
+import { FlatList, Text, KeyboardAvoidingView, View} from 'react-native'
+import * as Animatable from 'react-native-animatable';
 import { connect } from 'react-redux'
 // Add Actions - replace 'Your' with whatever your reducer is called :)
 import RestaurantActions, { RestaurantSelectors } from '../Redux/RestaurantRedux'
 import RestaurantRow from '../Components/RestaurantRow'
+import RestaurantDetails from '../Components/RestaurantDetails'
+import RestaurantMap from '../Components/RestaurantMap'
 
 import { Metrics } from'../Themes'
 // Styles
 import styles from './Styles/ListScreenStyle'
 
 class ListScreen extends Component {
+  state = {
+    drawerOpen: false
+  }
+  handleViewRef = ref => this.view = ref;
+
   numColumns = Metrics.screenWidth > 480
     ? 2
     : 1;
 
   componentDidMount() {
+    // this.view.slideInRight(800).then(endState => console.log(endState))
     this.props.getRestaurants()
   }
 
+  _closeDrawer = () => {
+    this.view.fadeOutRight(800)
+      .then(endState  => {
+        this.setState({ drawerOpen: false})
+      })
+  }
+
+  componentWillReceiveProps(nextProps: Readonly<P>, nextContext: any): void {
+    if(this.props.selectedId && !nextProps.selectedId) {
+      this._closeDrawer()
+    }
+  }
+
+  _openDrawer = () => {
+    this.setState({
+      drawerOpen: true
+    })
+  };
+
+
+
   _onPress = (id :string)  => {
+    console.log('pressed')
     this.props.setSelectedRestaurantId(id)
-    this.props.nav.navigation.openDrawer()
+    this._openDrawer()
   }
 
   _renderItem =  ({item}) => (
@@ -33,18 +64,45 @@ class ListScreen extends Component {
 
   _keyExtractor = (item, index) => item.clientId
 
+  renderRestaurantDetails = () => {
+    const {
+      selectedRestaurant,
+      restaurants
+    } = this.props
+      if (this.props.selectedRestaurant)  {
+        const {
+          name,
+          category,
+          location,
+          contact
+
+        } = this.props.selectedRestaurant
+        return (
+          <Animatable.View  iterationCount={1} ref={this.handleViewRef} animation={'slideInRight'}  style={styles.details}>
+            <RestaurantMap restaurants={restaurants} selectedRestaurant={selectedRestaurant}/>
+            <RestaurantDetails name={name} category={category} address={location && location.formattedAddress} number={contact && contact.formattedPhone} twitter={contact && contact.twitter}/>
+          </Animatable.View>
+        )
+      }
+      return null
+    }
+
+
   render () {
     const { restaurants } = this.props
-    console.log(restaurants, 'hello   are you sure?')
+    const { drawerOpen } = this.state
     return (
-      <FlatList
-        renderItem={this._renderItem}
-        data={restaurants}
-        style={styles.container}
-        keyExtractor={this._keyExtractor}
-        horizontal={false}
-        numColumns={this.numColumns}
-      />
+      <View style={styles.container}>
+        <FlatList
+          renderItem={this._renderItem}
+          data={restaurants}
+          keyExtractor={this._keyExtractor}
+          horizontal={false}
+          numColumns={this.numColumns}
+        />
+        { drawerOpen && this.renderRestaurantDetails()  }
+      </View>
+
     )
   }
 }
@@ -52,7 +110,8 @@ class ListScreen extends Component {
 const mapStateToProps = (state) => {
   return {
     restaurants: RestaurantSelectors.getRestaurants(state),
-    nav: state.nav
+    selectedId: RestaurantSelectors.getSelectedRestaurantId(state),
+    selectedRestaurant: RestaurantSelectors.getSelectedRestaurant(state)
   }
 }
 

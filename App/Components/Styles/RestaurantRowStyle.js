@@ -20,14 +20,12 @@ export default StyleSheet.create({
   sectionTitle: {
     fontFamily: Fonts.type.bold,
     fontSize: Fonts.size.regular,
-    color: Colors.white,
-    opacity: 1
+    color: Colors.white
   },
   sectionSubTitle:{
     fontFamily: Fonts.type.base,
     fontSize: Fonts.size.small,
-    color: Colors.white,
-    opacity: 1
+    color: Colors.white
   }
 
 })

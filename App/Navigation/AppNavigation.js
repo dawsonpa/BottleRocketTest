@@ -1,5 +1,6 @@
 import React from 'react'
-import { createStackNavigator, createAppContainer, createDrawerNavigator } from 'react-navigation'
+import { createStackNavigator, createAppContainer } from 'react-navigation'
+import CloseDrawerButtonContainer from '../Containers/CloseDrawerButtonContainer'
 import DetailScreen from '../Containers/DetailScreen'
 import ListScreen from '../Containers/ListScreen'
 import Header from '../Containers/Header'
@@ -16,34 +17,11 @@ const ListStack = createStackNavigator({
   // Default config for all screens
   headerMode: 'float',
   initialRouteName: 'ListScreen',
-  navigationOptions: {
-    headerStyle: styles.header,
-    headerRight: () => <HeaderIcon imgSource={Images.mapIcon} />,
-    headerTitleStyle: {
-      color: '#FFFFFF',
-      fontSize: 17,
-      fontFamily: Fonts.type.bold
-    }
-  }
-})
-
-const DrawerNavigator = createDrawerNavigator({
-  list: {
-    screen: ListScreen,
-    navigationOptions: ()  => ({
-      headerBackTitleVisible: false
-    })
-  },
-  detail: DetailScreen
-},{
-  hideStatusBar: true,
   defaultNavigationOptions: {
-    headerStyle: {
-      backgroundColor: '#43E895'
-    },
-    title:  'Lunch Tyme',
-    headerBackImage: () => <HeaderIcon imgSource={Images.backButton} />,
-    headerRight: () => <HeaderIcon imgSource={Images.mapIcon} />,
+    title: 'Lunch Tyme',
+    headerStyle: styles.header,
+    headerRight: <HeaderIcon imgSource={Images.mapIcon} />,
+    headerLeft: <CloseDrawerButtonContainer />,
     headerTitleStyle: {
       color: '#FFFFFF',
       fontSize: 17,
@@ -52,7 +30,4 @@ const DrawerNavigator = createDrawerNavigator({
   }
 })
 
-
-
-
-export default createAppContainer(DrawerNavigator)
+export default createAppContainer(ListStack)

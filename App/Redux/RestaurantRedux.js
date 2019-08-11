@@ -30,10 +30,17 @@ const getRestaurants = state => state.restaurants.restaurants;
 
 export const RestaurantSelectors = {
   getRestaurants,
+  getSelectedRestaurantId,
   getSelectedRestaurant: createSelector(
     getSelectedRestaurantId,
     getRestaurants,
-    (id, restaurants) => restaurants.filter(restaurant => restaurant.clientId === id)
+    (id, restaurants) => {
+      if(id && restaurants && restaurants.length) {
+       return restaurants.find(restaurant => restaurant.clientId === id)
+      }
+
+      return null
+    }
   )
 }
 

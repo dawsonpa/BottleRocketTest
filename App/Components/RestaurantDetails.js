@@ -1,16 +1,16 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types';
 import { View, Text } from 'react-native'
 import styles from './Styles/RestaurantDetailsStyle'
 
-export default class RestaurantDetails extends Component {
+export default class RestaurantDetails extends PureComponent {
   // // Prop type warnings
   static propTypes = {
     name: PropTypes.string.isRequired,
     category: PropTypes.string.isRequired,
-    address: PropTypes.array(PropTypes.string).isRequired,
-    number: PropTypes.string.isRequired,
-    twitter: PropTypes.string.isRequired
+    address: PropTypes.array,
+    number: PropTypes.string,
+    twitter: PropTypes.string
   }
   //
   // // Defaults for props
@@ -32,17 +32,18 @@ export default class RestaurantDetails extends Component {
           <Text style={[styles.sectionTitle, { marginBottom: 6 }]}>{name}</Text>
           <Text style={styles.sectionSubTitle}>{category}</Text>
         </View>
-        <View style={styles.addressContainer}>
+        {address && address.length && <View style={styles.addressContainer}>
          {
            address.map((line, ind) => {
              if(ind !== 2) {
-               return (<Text style={[styles.detailsText, { marginBottom: 26 }]}>{line}</Text>)
+               return (<Text key={ind} style={styles.detailsText}>{line}</Text>)
              }
            })
          }
         </View>
-        <Text style={[styles.detailsText,  { marginBottom: 26 }]}>{number}</Text>
-        <Text>{`@${twitter}`}</Text>
+        }
+        {number && <Text style={[styles.detailsText,  { marginHorizontal: 12, marginBottom: 26 }]}>{number}</Text>}
+        {twitter && <Text style={{marginHorizontal:12}}>{`@${twitter}`}</Text>}
       </View>
     )
   }
