@@ -5,7 +5,6 @@ export default StyleSheet.create({
   container: {
     flex: 1,
     height: 180 * PixelRatio.get(),
-    width: '100%',
     flexDirection: 'column',
     justifyContent:'flex-end',
   },

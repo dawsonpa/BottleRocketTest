@@ -59,7 +59,10 @@ class ListScreen extends Component {
       name={item.name}
       category={item.category}
       imgSource={item.backgroundImageURL}
-      id={item.clientId} onPress={this._onPress}/>
+      id={item.clientId} onPress={this._onPress}
+      numColumns={this.numColumns}
+    />
+
   )
 
   _keyExtractor = (item, index) => item.clientId
