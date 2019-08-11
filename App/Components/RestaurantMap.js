@@ -4,7 +4,7 @@ import { View, Text, Image } from 'react-native'
 import MapView, { Marker, Callout } from 'react-native-maps';
 
 import styles from './Styles/RestaurantMapStyle'
-import {Colors, Metrics} from "../Themes";
+import {Colors, Fonts, Metrics} from "../Themes";
 
 export default class RestaurantMap extends PureComponent {
   // // Prop type warnings
@@ -20,17 +20,22 @@ export default class RestaurantMap extends PureComponent {
   //   someSetting: false
   // }
 
-  render () {
-    const { selectedRestaurant, restaurants } = this.props
-    const region = {
+  get region() {
+    const { selectedRestaurant } = this.props
+
+    return {
       latitude: selectedRestaurant.location.lat,
       longitude: selectedRestaurant.location.lng,
       latitudeDelta: 0.001,
       longitudeDelta: 0.001
     }
+  }
+
+  render () {
+    const { restaurants } = this.props
 
     return (
-      <MapView region={region} provider={'google'} loadingEnabled loadingIndicatorColor={Colors.headerBackground} style={styles.container}>
+      <MapView region={this.region} provider={'google'} loadingEnabled loadingIndicatorColor={Colors.headerBackground} style={styles.container}>
         {
           restaurants.map((restaurant, ind) => {
             return (
@@ -44,12 +49,12 @@ export default class RestaurantMap extends PureComponent {
                 identifier={restaurant.clientId}
               >
                 <Callout style={{flexDirection: 'row'}}>
-                  <Image source={{uri: restaurant.backgroundImageURL}} style={{ width: Metrics.images.large, height: Metrics.images.large}}/>
-                  <View style={{paddingLeft: 6, height: Metrics.images.large}}>
-                    <Text style={{fontSize: 8, color:Colors.sectionTitleBackground}} numberOfLines={1}>{restaurant.name}</Text>
-                    <Text style={{fontSize: 8,color:Colors.sectionTitleBackground}} numberOfLines={1}>{restaurant.category}</Text>
-                    {restaurant.location  && restaurant.location.address && <Text numberOfLines={1}  style={{fontSize: 8,color:Colors.sectionTitleBackground}}>{restaurant.location.address}</Text>}
-                    {restaurant.contact && restaurant.contact.formattedPhone && <Text numberOfLines={1} style={{fontSize: 8,color:Colors.sectionTitleBackground}}>{restaurant.contact.formattedPhone}</Text>}
+                  <Image source={{uri: restaurant.backgroundImageURL}} style={styles.thumbnail}/>
+                  <View style={styles.detailsContainer}>
+                    <Text style={[styles.detailsText, {fontFamily: Fonts.type.bold, marginBottom: 2}]} numberOfLines={1}>{restaurant.name}</Text>
+                    <Text style={styles.detailsText} numberOfLines={1}>{restaurant.category}</Text>
+                    {restaurant.location  && restaurant.location.address && <Text numberOfLines={1}  style={styles.detailsText}>{restaurant.location.address}</Text>}
+                    {restaurant.contact && restaurant.contact.formattedPhone && <Text numberOfLines={1} style={styles.detailsText}>{restaurant.contact.formattedPhone}</Text>}
                   </View>
                 </Callout>
               </Marker>
