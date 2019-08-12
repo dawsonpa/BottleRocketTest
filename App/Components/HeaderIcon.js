@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types';
 import { View, Text, Image } from 'react-native'
 import styles from './Styles/BackButtonStyle'
-import { Images } from '../Themes'
+import { Metrics } from '../Themes'
 
 export default class HeaderIcon extends Component {
   // Prop type warnings
@@ -14,6 +14,9 @@ export default class HeaderIcon extends Component {
   // static defaultProps = {
   //   someSetting: false
   // }
+  numColumns = Metrics.screenWidth > 480
+    ? 2
+    : 1;
 
   render () {
     return (

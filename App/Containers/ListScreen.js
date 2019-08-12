@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { FlatList, Text, KeyboardAvoidingView, View} from 'react-native'
+import { FlatList, View} from 'react-native'
 import * as Animatable from 'react-native-animatable';
 import { connect } from 'react-redux'
 // Add Actions - replace 'Your' with whatever your reducer is called :)
@@ -23,7 +23,6 @@ class ListScreen extends Component {
     : 1;
 
   componentDidMount() {
-    // this.view.slideInRight(800).then(endState => console.log(endState))
     this.props.getRestaurants()
   }
 
@@ -94,7 +93,7 @@ class ListScreen extends Component {
         } = this.props.selectedRestaurant
         return (
           <Animatable.View  iterationCount={1} ref={this.handleViewRef} animation={'slideInRight'}  style={styles.details}>
-            <RestaurantMap restaurants={restaurants} selectedRestaurant={selectedRestaurant} onMarkerClicked={this.onMarkerClicked}/>
+            <RestaurantMap numColumns={this.numColumns} restaurants={restaurants} selectedRestaurant={selectedRestaurant} onMarkerClicked={this.onMarkerClicked}/>
             <RestaurantDetails name={name} category={category} address={location && location.formattedAddress} number={contact && contact.formattedPhone} twitter={contact && contact.twitter}/>
           </Animatable.View>
         )

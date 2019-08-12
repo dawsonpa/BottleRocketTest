@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import {TouchableOpacity } from 'react-native'
 import { connect } from 'react-redux'
 import HeaderIcon from '../Components/HeaderIcon'
-import { Images } from '../Themes'
+import {Images, Metrics} from '../Themes'
 // Add Actions - replace 'Your' with whatever your reducer is called :)
 import RestaurantActions, { RestaurantSelectors } from '../Redux/RestaurantRedux'
 
@@ -14,6 +14,7 @@ class CloseDrawerButtonContainer extends Component {
   //   super(props)
   //   this.state = {}
   // }
+
 
   _closeDrawer = () => {
     this.props.setSelectedRestaurantId(null)

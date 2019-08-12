@@ -11,7 +11,8 @@ export default class RestaurantMap extends PureComponent {
   static propTypes = {
     restaurants: PropTypes.array.isRequired,
     selectedRestaurant: PropTypes.object.isRequired,
-    onMarkerClicked: PropTypes.func.isRequired
+    onMarkerClicked: PropTypes.func.isRequired,
+    numColumns:  PropTypes.number.isRequired
   }
 
   //
@@ -32,10 +33,10 @@ export default class RestaurantMap extends PureComponent {
   }
 
   render () {
-    const { restaurants } = this.props
+    const { restaurants, numColumns } = this.props
 
     return (
-      <MapView region={this.region} provider={'google'} loadingEnabled loadingIndicatorColor={Colors.headerBackground} style={styles.container}>
+      <MapView region={this.region} provider={'google'} loadingEnabled loadingIndicatorColor={Colors.headerBackground} style={numColumns === 2 ? [styles.container, { height: 500 }] : styles.container}>
         {
           restaurants.map((restaurant, ind) => {
             return (
