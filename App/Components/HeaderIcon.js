@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types';
-import { View, Text, Image } from 'react-native'
+import { Image } from 'react-native'
 import styles from './Styles/BackButtonStyle'
 import { Metrics } from '../Themes'
 
@@ -20,7 +20,7 @@ export default class HeaderIcon extends Component {
 
   render () {
     return (
-      <Image source={this.props.imgSource} style={styles.headerIcon} />
+      <Image source={this.props.imgSource} style={this.numColumns ?  [styles.headerIcon, { height:  Metrics.icons.medium, width:Metrics.icons.medium }] : styles.headerIcon} />
     )
   }
 }
