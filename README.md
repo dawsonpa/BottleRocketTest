@@ -11,13 +11,19 @@
 
 **Step 3:** Install the Application with `yarn` or `npm i`
 
+**Step 4:** cd to ios/
+
+**Step 5:** `pod install`
+
 
 ## :arrow_forward: How to Run App
 
 1. cd to the repo
-2. Run Build for either OS
+3. Run Build for either OS
   * for iOS
-    * run `react-native run-ios`
+    * cd ios/
+    * run `open BottleRocketTest.xcworkspace/`
+    * Build and Select Target with Xcode
   * for Android
     * Run Genymotion
     * run `react-native run-android`
