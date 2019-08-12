@@ -2,6 +2,8 @@
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](http://standardjs.com/)
 
 * Standard compliant React Native App Utilizing [Ignite](https://github.com/infinitered/ignite)
+* Code Base developed with node v11.15.0
+* Used Yarn as a package manager
 
 ## :arrow_up: How to Setup
 
@@ -11,9 +13,9 @@
 
 **Step 3:** Install the Application with `yarn` or `npm i`
 
-**Step 4:** cd to ios/
+**Step 4:** run `cd ios/`
 
-**Step 5:** `pod install`
+**Step 5:** run `pod install`
 
 
 ## :arrow_forward: How to Run App
@@ -21,7 +23,7 @@
 1. cd to the repo
 3. Run Build for either OS
   * for iOS
-    * cd ios/
+    * run `cd ios/`
     * run `open BottleRocketTest.xcworkspace/`
     * Build and Select Target with Xcode
   * for Android
