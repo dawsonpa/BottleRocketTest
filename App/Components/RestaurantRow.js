@@ -34,7 +34,6 @@ export default class RestaurantRow extends PureComponent {
         <ImageBackground source={{uri: imgSource}} style={[styles.container, { width: Metrics.screenWidth / this.props.numColumns}]}>
           <LinearGradient
             style={styles.gradient}
-            onError={err => console.log('error', err)}
             start={{x:0, y:1}} end={{x:0, y:0}}
             colors={["rgba(0,0,0,0.8)", "rgba(0,0,0,0.7)", "rgba(0,0,0,0.6)","rgba(0,0,0,0.5)","rgba(0,0,0,0.4)","rgba(0,0,0,0.3)","rgba(0,0,0,0.2)", "rgba(0,0,0,0.1)","rgba(0,0,0,0)"]}
             locations={[0.05,  0.1, 0.15, 0.2, 0.25, 0.3,  0.35, 0.4, 1]}

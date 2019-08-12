@@ -3,7 +3,7 @@ import { createStackNavigator, createAppContainer } from 'react-navigation'
 import CloseDrawerButtonContainer from '../Containers/CloseDrawerButtonContainer'
 import ListScreen from '../Containers/ListScreen'
 import HeaderIcon from '../Components/HeaderIcon'
-import {Fonts, Images} from '../Themes'
+import {Fonts, Images, Metrics} from '../Themes'
 import styles from './Styles/NavigationStyles'
 
 // Manifest of possible screens
@@ -20,7 +20,7 @@ const ListStack = createStackNavigator({
     headerLeft: <CloseDrawerButtonContainer />,
     headerTitleStyle: {
       color: '#FFFFFF',
-      fontSize: Fonts.size.regular,
+      fontSize: Metrics.screenWidth > 480 ?  Fonts.size.small :Fonts.size.regular,
       fontFamily: Fonts.type.bold
     }
   }

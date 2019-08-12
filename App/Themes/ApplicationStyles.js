@@ -46,8 +46,8 @@ const ApplicationStyles = {
       color: Colors.text
     },
     headerIcon: {
-      height: Metrics.icons.small,
-      width:Metrics.icons.small,
+      height: Metrics.icons.xl,
+      width:Metrics.icons.xl,
       resizeMode: 'contain',
       color: Colors.white
     }

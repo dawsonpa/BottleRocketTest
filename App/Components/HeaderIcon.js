@@ -20,7 +20,7 @@ export default class HeaderIcon extends Component {
 
   render () {
     return (
-      <Image source={this.props.imgSource} style={this.numColumns ?  [styles.headerIcon, { height:  Metrics.icons.xl, width:Metrics.icons.xl }] : styles.headerIcon} />
+      <Image source={this.props.imgSource} style={this.numColumns === 2 ?  [styles.headerIcon, { height:  Metrics.icons.medium, width:Metrics.icons.medium }] : styles.headerIcon} />
     )
   }
 }

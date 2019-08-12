@@ -48,7 +48,6 @@ class ListScreen extends Component {
 
 
   _onPress = (id :string)  => {
-    console.log('pressed')
     this.props.setSelectedRestaurantId(id)
     this._openDrawer()
   }
@@ -67,7 +66,6 @@ class ListScreen extends Component {
   _keyExtractor = (item, index) => item.clientId
 
   onMarkerClicked = e => {
-    console.log(e.nativeEvent, 'logging')
     const {
       selectedId,
       setSelectedRestaurantId

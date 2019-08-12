@@ -13,7 +13,7 @@ export default StyleSheet.create({
     flex: 1,
     flexDirection: 'column',
     justifyContent: 'flex-end',
-    paddingLeft: Metrics.baseMargin,
+    paddingHorizontal: Metrics.baseMargin,
     paddingBottom: Metrics.baseMargin
   },
   sectionTitle: {
