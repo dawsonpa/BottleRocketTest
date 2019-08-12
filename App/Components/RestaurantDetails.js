@@ -1,7 +1,8 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types';
-import { View, Text } from 'react-native'
+import { ScrollView, Text, View } from 'react-native'
 import styles from './Styles/RestaurantDetailsStyle'
+import {Metrics} from "../Themes";
 
 export default class RestaurantDetails extends PureComponent {
   // // Prop type warnings
@@ -32,18 +33,20 @@ export default class RestaurantDetails extends PureComponent {
           <Text style={styles.sectionTitle}>{name}</Text>
           <Text style={styles.sectionSubTitle}>{category}</Text>
         </View>
-        {address && address.length && <View style={styles.addressContainer}>
-         {
-           address.map((line, ind) => {
-             if(ind !== 2) {
-               return (<Text key={ind} style={styles.detailsText}>{line}</Text>)
-             }
-           })
-         }
+        <View style={styles.detailsContainer}>
+          {address && address.length && <View style={styles.addressContainer}>
+            {
+              address.map((line, ind) => {
+                if(ind !== 2) {
+                  return (<Text key={ind} style={styles.detailsText}>{line}</Text>)
+                }
+              })
+            }
+          </View>
+          }
+          {number && <Text style={[styles.detailsText,  { marginBottom: Metrics.doubleBaseMargin }]}>{number}</Text>}
+          {twitter && <Text style={styles.detailsText}>{`@${twitter}`}</Text>}
         </View>
-        }
-        {number && <Text style={[styles.detailsText,  { marginHorizontal: 12, marginBottom: 26 }]}>{number}</Text>}
-        {twitter && <Text style={{marginHorizontal:12}}>{`@${twitter}`}</Text>}
       </View>
     )
   }

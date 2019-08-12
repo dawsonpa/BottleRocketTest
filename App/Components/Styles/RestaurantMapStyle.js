@@ -1,21 +1,22 @@
 import { StyleSheet, PixelRatio } from 'react-native'
 import {Colors, Fonts, Metrics} from "../../Themes";
+import { heightPercentageToDP as hp, widthPercentageToDP as wp} from 'react-native-responsive-screen';
 
 export default StyleSheet.create({
   container: {
     width: '100%',
-    height: PixelRatio.get() * 180
+    height:'40%'
   },
   thumbnail: {
-    width: PixelRatio.get() * Metrics.images.large,
-    height: PixelRatio.get() * Metrics.images.large
+    width: hp('9%'),
+    height: hp('9%'),
   },
   detailsContainer: {
     paddingLeft: 6,
-    height: PixelRatio.get() * Metrics.images.large
+    height:hp('9%')
   },
   detailsText: {
-    fontSize: 8 * PixelRatio.get(),
+    fontSize: Fonts.size.tiny,
     color:Colors.sectionTitleBackground,
     fontFamily: Fonts.type.base
   }

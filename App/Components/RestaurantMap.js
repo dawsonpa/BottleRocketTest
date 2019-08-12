@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types';
-import { View, Text, Image } from 'react-native'
+import { View, Text, Image, ScrollView } from 'react-native'
 import MapView, { Marker, Callout } from 'react-native-maps';
 
 import styles from './Styles/RestaurantMapStyle'
@@ -36,7 +36,7 @@ export default class RestaurantMap extends PureComponent {
     const { restaurants, numColumns } = this.props
 
     return (
-      <MapView region={this.region} provider={'google'} loadingEnabled loadingIndicatorColor={Colors.headerBackground} style={numColumns === 2 ? [styles.container, { height: 500 }] : styles.container}>
+      <MapView region={this.region} provider={'google'} loadingEnabled loadingIndicatorColor={Colors.headerBackground} style={styles.container}>
         {
           restaurants.map((restaurant, ind) => {
             return (
@@ -51,12 +51,12 @@ export default class RestaurantMap extends PureComponent {
               >
                 <Callout style={{flexDirection: 'row'}}>
                   <Image source={{uri: restaurant.backgroundImageURL}} style={styles.thumbnail}/>
-                  <View style={styles.detailsContainer}>
+                  <ScrollView style={styles.detailsContainer}>
                     <Text style={[styles.detailsText, {fontFamily: Fonts.type.bold, marginBottom: 2}]} numberOfLines={1}>{restaurant.name}</Text>
                     <Text style={styles.detailsText} numberOfLines={1}>{restaurant.category}</Text>
                     {restaurant.location  && restaurant.location.address && <Text numberOfLines={1}  style={styles.detailsText}>{restaurant.location.address}</Text>}
                     {restaurant.contact && restaurant.contact.formattedPhone && <Text numberOfLines={1} style={styles.detailsText}>{restaurant.contact.formattedPhone}</Text>}
-                  </View>
+                  </ScrollView>
                 </Callout>
               </Marker>
               )

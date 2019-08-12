@@ -20,7 +20,7 @@ const ListStack = createStackNavigator({
     headerLeft: <CloseDrawerButtonContainer />,
     headerTitleStyle: {
       color: '#FFFFFF',
-      fontSize: 17,
+      fontSize: Fonts.size.regular,
       fontFamily: Fonts.type.bold
     }
   }

@@ -1,43 +1,45 @@
 import { StyleSheet, PixelRatio } from 'react-native'
-import { Colors ,Fonts } from "../../Themes";
+import {Colors, Fonts, Metrics} from "../../Themes";
 
 export default StyleSheet.create({
   container: {
-    flexDirection:  'column'
+    flexDirection:  'column',
+    height: '60%'
   },
   sectionTitleContainer:  {
     width: '100%',
-    height: 60 * PixelRatio.get(),
+    height: '20%',
     flexDirection: 'column',
     justifyContent: 'center',
-    paddingHorizontal: 12,
+    paddingHorizontal: Metrics.baseMargin,
     backgroundColor: Colors.sectionTitleBackground
   },
   sectionTitle: {
     fontFamily: Fonts.type.bold,
-    fontSize: Fonts.size.regular * PixelRatio.get(),
+    fontSize: Fonts.size.regular,
     color: Colors.white,
   },
   sectionSubTitle:{
     fontFamily: Fonts.type.base,
-    fontSize: Fonts.size.small * PixelRatio.get(),
+    fontSize: Fonts.size.small,
     color: Colors.white,
   },
   detailsContainer: {
     width:'100%',
-    paddingHorizontal: 12,
-    backgroundColor: Colors.background,
+    height: '40%',
+    paddingHorizontal: Metrics.baseMargin,
+    paddingTop: Metrics.baseMargin,
+    backgroundColor: Colors.snow,
     flexDirection: 'column'
   },
   addressContainer: {
-    marginTop: 16,
     flexDirection: 'column',
-    paddingHorizontal: 12,
-    marginBottom: 26
+    marginBottom: Metrics.doubleBaseMargin
 
   },
   detailsText: {
-    fontSize: Fonts.size.h6,
-    color: Colors.panther
+    fontSize: Fonts.size.regular,
+    color: Colors.panther,
+    fontFamily: Fonts.type.base
   }
 })

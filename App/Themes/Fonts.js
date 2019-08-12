@@ -1,3 +1,5 @@
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+
 const type = {
   base: 'AvenirNext-Regular',
   bold: 'AvenirNext-DemiBold',
@@ -11,11 +13,11 @@ const size = {
   h4: 26,
   h5: 20,
   h6: 19,
-  title: 17,
-  regular: 16,
-  medium: 14,
-  small: 12,
-  tiny: 8.5
+  title: hp('5%'),
+  regular: hp('3.5%'),
+  medium: hp('3%'),
+  small: hp('2%'),
+  tiny: hp('1.5%')
 }
 
 const style = {
